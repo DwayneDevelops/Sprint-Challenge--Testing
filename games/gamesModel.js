@@ -3,30 +3,25 @@ const db = require('../data/dbConfig.js');
 module.exports = {
     insert,
     getAll,
-    getById,
+    getByTitle,
     remove
 }
 
 function insert(game) {
     return db('games')
-    .insert(game, 'id')
-    .then(ids => {
-        return db('games')
-        .where({ id: ids[0] })
-        .first();
-    });
+    .insert(game);
 }
 
 function getAll() {
     return db('games');
 }
 
-function getById(id) {
+function getByTitle(title) {
     return db('games')
-    .where({ id })
+    .where({ title })
     .first();
 }
 
-function remove(id) {
+function remove(title) {
     return null
 }

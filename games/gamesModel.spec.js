@@ -1,6 +1,6 @@
 const db = require('../data/dbConfig.js');
 
-const{ insert, getAll, getById } = require('./gamesModel.js');
+const{ insert, getAll, getByTitle } = require('./gamesModel.js');
 
 describe('games model', () => {
     beforeEach(async () => {
@@ -10,19 +10,20 @@ describe('games model', () => {
     // it('should set environment to testing', () => {
     //     expect(process.env.DB_ENV).toBe('testing');
     // });
+
     describe('getAll()', () => {
         it('should get all the games', async () => {
             const games = await getAll();
 
-            expect(games.length).toBe(1);
+            expect(games.length).toBe(0);
         });
     });
 
-    describe('getById()', () => {
-        it('should get a game by it\'s ID', async () => {
-            const id = await getById(1);
+    describe('getByTitle()', () => {
+        it('should get a game by it\'s Title', async () => {
+            const entry = await getByTitle(1);
 
-            expect(id.releaseYear).toBe( 1980 );
+            expect(entry.releaseYear).toBe( 1980 );
         })
     })
 
@@ -45,9 +46,9 @@ describe('games model', () => {
             
             game = { title: 'Tetris', genre: 'Arcade', releaseYear: 1984 };
             inserted = await insert(game);
-            expect(inserted.title).toBe(game.title);
-            expect(inserted.genre).toBe(game.genre);
-            expect(inserted.releaseYear).toBe(game.releaseYear);
+            expect(inserted.title).toBe({ title });
+            expect(inserted.genre).toBe({ genre });
+            expect(inserted.releaseYear).toBe({ releaseYear });
         });    
     });
 });
