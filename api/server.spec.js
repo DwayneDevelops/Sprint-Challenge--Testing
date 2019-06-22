@@ -35,8 +35,7 @@ describe('server', () => {
       it('responds with a 422 error code', async () => {
           await supertest(server)
           .get('/games')
-          expect(200)
-      })
-  })
-  
+          .expect(200)
+      });
+  });
 });
