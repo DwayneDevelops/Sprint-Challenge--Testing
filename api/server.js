@@ -26,4 +26,20 @@ server.get('/games', (req, res) => {
     });
 });
 
+server.post('/games', (req, res) => {
+    const newGame = req.body;
+
+    if (!newGame.title || !newGame.genre) {
+        res.status(422).json({ message: 'Please provide name and genre' });
+    } else {
+        Games.insert(newGame)
+        .then(game => {
+        res.status(201).json(game);
+    })
+    .catch(error => {
+        res.status(500).json({ err: 'Could not insert game'});
+     });
+    };
+});
+
 module.exports = server;

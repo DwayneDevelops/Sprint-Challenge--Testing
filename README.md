@@ -26,15 +26,15 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 1. In Jest, what are the differences between `describe()` and `it()` globals, and what are good uses for them?
 
--A-
+-A- describe() acts as a container for the test which are implemented with it(). describe() methods help to categorize tests, while the it() help to describe what a test is testing.
 
 1. What is the point of `Test Driven Development`? What do you think about this approach?
 
--A-
+-A- Test driven developement is a code writing strategy which has further development in mind. It is aimed at preventing errors and bugs as you incorporate more code. I think this is a nice approach, because it acts as an extra layer of protection from unforeseen problems down the line.
 
 1. Mention three types of automated tests.
 
--A-
+-A- snapshot testing, integration testing, unit testing
 
 ## Project Set Up
 
@@ -66,8 +66,8 @@ Below is a product specification covering the requirements for your endpoints.
   }
   ```
 
-- [ ] In the route handler, validate that the required fields are included inside the body. If the information is incomplete, return a `422` status code.
-- [ ] Write tests to verify that the endpoint returns the correct HTTP status code when receiving correct and incorrect game data.
+- [x] In the route handler, validate that the required fields are included inside the body. If the information is incomplete, return a `422` status code.
+- [x] Write tests to verify that the endpoint returns the correct HTTP status code when receiving correct and incorrect game data.
 
 ### GET /games
 

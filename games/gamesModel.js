@@ -7,9 +7,9 @@ module.exports = {
     remove
 }
 
-function insert(game) {
+function insert(newGame) {
     return db('games')
-    .insert(game);
+    .insert(newGame);
 }
 
 function getAll() {
